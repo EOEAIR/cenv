@@ -22,3 +22,5 @@ HEALTHCHECK CMD [ "curl", "-f", "http://localhost:8080/health" ]
 ENTRYPOINT [ "llama-server" ]
 
 CMD ["-m", "/models/ggml-model-q4_0.gguf", "--port", "80", "--host", "0.0.0.0", "-n", "1024"]
+
+# model: https://hf-mirror.com/bartowski/Qwen2-VL-7B-Instruct-GGUF
