@@ -16,11 +16,3 @@ COPY --from=builder /usr/local/bin/llama-server /usr/local/bin/llama-server
 
 RUN apt-get update --yes && apt-get install --yes --no-install-recommends libgomp1 && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
-
-HEALTHCHECK CMD [ "curl", "-f", "http://localhost:8080/health" ]
-
-ENTRYPOINT [ "llama-server" ]
-
-CMD ["-m", "/models/ggml-model-q4_0.gguf", "--port", "80", "--host", "0.0.0.0", "-n", "1024"]
-
-# model: https://hf-mirror.com/bartowski/Qwen2-VL-7B-Instruct-GGUF
